@@ -1,339 +1,339 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>JaiVang Personal Website</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JaiVang Personal Website</title>
 
-<style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:Arial, sans-serif;
-}
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
 
-body{
-  background:linear-gradient(135deg,#1f1c2c,#928dab);
-  color:white;
-  min-height:100vh;
-  overflow-x:hidden;
-}
+    body {
+      background: linear-gradient(135deg, #1f1c2c, #928dab);
+      color: white;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
 
-/* HEADER */
-header{
-  position:sticky;
-  top:0;
-  z-index:1000;
-  background:rgba(20,20,20,0.75);
-  backdrop-filter:blur(12px);
-  padding:12px 16px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  flex-wrap:wrap;
-  gap:10px;
-}
+    /* HEADER */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(20, 20, 20, 0.75);
+      backdrop-filter: blur(12px);
+      padding: 12px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
 
-/* 🔥 LOGO (กลับ ORIGINAL ที่คุณต้องการ) */
-.logo{
-  font-size:clamp(22px,4vw,34px);
-  font-weight:bold;
-  letter-spacing:2px;
-  display:flex;
-}
+    /* LOGO */
+    .logo {
+      font-size: clamp(22px, 4vw, 34px);
+      font-weight: bold;
+      letter-spacing: 2px;
+      display: flex;
+    }
 
-.logo span{
-  display:inline-block;
-  animation:jumpPause 4s infinite;
-}
+    .logo span {
+      display: inline-block;
+      animation: jumpPause 4s infinite;
+    }
 
-/* ORIGINAL ANIMATION (เหมือนที่คุณส่งมาแรกๆ) */
-@keyframes jumpPause{
-  0%{transform:translateY(0);}
-  8%{transform:translateY(-7px);}
-  16%{transform:translateY(0);}
-  100%{transform:translateY(0);}
-}
+    @keyframes jumpPause {
+      0% {
+        transform: translateY(0);
+      }
 
-/* delay ทีละตัว (สำคัญมาก) */
-.logo span:nth-child(1){animation-delay:0s;}
-.logo span:nth-child(2){animation-delay:.1s;}
-.logo span:nth-child(3){animation-delay:.2s;}
-.logo span:nth-child(4){animation-delay:.3s;}
-.logo span:nth-child(5){animation-delay:.4s;}
-.logo span:nth-child(6){animation-delay:.5s;}
-.logo span:nth-child(7){animation-delay:.6s;}
-.logo span:nth-child(8){animation-delay:.7s;}
+      8% {
+        transform: translateY(-7px);
+      }
 
-/* NAV */
-nav{
-  display:flex;
-  gap:8px;
-  flex-wrap:nowrap;
-  overflow-x:auto;
-  scrollbar-width:none;
-}
+      16% {
+        transform: translateY(0);
+      }
 
-nav::-webkit-scrollbar{
-  display:none;
-}
+      100% {
+        transform: translateY(0);
+      }
+    }
 
-nav button{
-  border:none;
-  padding:10px 14px;
-  border-radius:12px;
-  cursor:pointer;
-  color:white;
-  font-size:14px;
-  font-weight:bold;
-  transition:.25s;
-  background:linear-gradient(135deg,#4facfe,#00f2fe);
-  box-shadow:0 6px 15px rgba(0,0,0,0.25);
-  flex:0 0 auto;
-  min-width:120px;
-  white-space:nowrap;
-}
+    .logo span:nth-child(1) {
+      animation-delay: 0s;
+    }
 
-nav button:hover{
-  transform:translateY(-3px);
-  box-shadow:0 10px 25px rgba(0,0,0,0.35);
-}
+    .logo span:nth-child(2) {
+      animation-delay: .1s;
+    }
 
-nav button.active{
-  background:linear-gradient(135deg,#43e97b,#38f9d7);
-  color:black;
-}
+    .logo span:nth-child(3) {
+      animation-delay: .2s;
+    }
 
-/* CONTAINER */
-.container{
-  max-width:1100px;
-  margin:auto;
-  padding:16px;
-}
+    .logo span:nth-child(4) {
+      animation-delay: .3s;
+    }
 
-/* CARD */
-.card{
-  background:rgba(255,255,255,0.08);
-  border:1px solid rgba(255,255,255,0.08);
-  padding:20px;
-  border-radius:18px;
-  margin-top:16px;
-  box-shadow:0 10px 30px rgba(0,0,0,0.25);
-}
+    .logo span:nth-child(5) {
+      animation-delay: .4s;
+    }
 
-/* PROFILE */
-.profile{
-  display:flex;
-  gap:16px;
-  align-items:center;
-  flex-wrap:wrap;
-}
+    .logo span:nth-child(6) {
+      animation-delay: .5s;
+    }
 
-.profile img{
-  width:120px;
-  height:120px;
-  border-radius:50%;
-  object-fit:cover;
-  border:3px solid white;
-  cursor:pointer;
-  transition:.3s;
-}
+    .logo span:nth-child(7) {
+      animation-delay: .6s;
+    }
 
-.profile img:hover{
-  transform:scale(1.05);
-}
+    .logo span:nth-child(8) {
+      animation-delay: .7s;
+    }
 
-/* VIDEO GRID (ยังคง fix ตามที่คุณต้องการ) */
-.video-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
-  gap:12px;
-  margin-top:16px;
-}
+    /* NAV */
+    nav {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
 
-video{
-  width:100%;
-  max-height:220px;
-  border-radius:14px;
-  object-fit:cover;
-  background:black;
-}
+    nav button {
+      border: none;
+      padding: 8px 12px;
+      border-radius: 10px;
+      cursor: pointer;
+      color: white;
+      font-size: 13px;
+      font-weight: bold;
+      transition: .25s;
+      background: linear-gradient(135deg, #4facfe, #00f2fe);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+    }
 
-/* FOOTER */
-footer{
-  margin:30px auto;
-  width:90%;
-  max-width:320px;
-  text-align:center;
-  padding:12px;
-  border-radius:50px;
-  background:linear-gradient(135deg,#232526,#414345);
-}
+    nav button:hover {
+      transform: translateY(-2px);
+    }
 
-/* IMAGE VIEWER */
-#viewer{
-  position:fixed;
-  inset:0;
-  display:none;
-  justify-content:center;
-  align-items:center;
-  background:rgba(0,0,0,.6);
-  backdrop-filter:blur(6px);
-  z-index:9999;
-}
+    nav button.active {
+      background: linear-gradient(135deg, #43e97b, #38f9d7);
+      color: black;
+    }
 
-#viewer img{
-  max-width:92%;
-  max-height:92%;
-  border-radius:16px;
-}
+    /* CONTAINER */
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 16px;
+    }
 
-/* HIDDEN */
-.hidden{display:none;}
+    /* CARD */
+    .card {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 20px;
+      border-radius: 18px;
+      margin-top: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    }
 
-/* MOBILE */
-@media(max-width:768px){
+    /* PROFILE */
+    .profile {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
 
-header{
-  flex-direction:column;
-  align-items:center;
-}
+    .profile img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid white;
+      transition: transform 0.3s ease;
+    }
 
-.profile{
-  flex-direction:column;
-  text-align:center;
-}
+    /* ✅ FIX: hover แบบเดิมของคุณ (ขยายอย่างเดียว) */
+    .profile img:hover {
+      transform: scale(1.08);
+    }
 
-nav{
-  width:100%;
-  overflow-x:auto;
-  flex-wrap:nowrap;
-  justify-content:flex-start;
-}
+    /* VIDEO GRID */
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 12px;
+      margin-top: 16px;
+    }
 
-nav button{
-  min-width:130px;
-}
+    video {
+      width: 100%;
+      max-width: 240px;
+      height: auto;
+      aspect-ratio: 9/16;
+      border-radius: 14px;
+      background: black;
+      object-fit: cover;
+    }
 
-.video-grid{
-  grid-template-columns:repeat(2,1fr);
-}
+    /* FOOTER */
+    footer {
+      margin: 30px auto;
+      width: 90%;
+      max-width: 320px;
+      text-align: center;
+      padding: 12px;
+      border-radius: 50px;
+      background: linear-gradient(135deg, #232526, #414345);
+    }
 
-video{
-  max-height:180px;
-}
+    #viewer {
+      position: fixed;
+      inset: 0;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      background: rgba(0, 0, 0, .6);
+      backdrop-filter: blur(6px);
+      z-index: 9999;
+    }
 
-}
-</style>
+    #viewer img {
+      max-width: 92%;
+      max-height: 92%;
+      border-radius: 16px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    @media(max-width:768px) {
+      header {
+        flex-direction: column;
+      }
+
+      nav {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .profile {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<header>
-<h1 class="logo">
-<span>J</span><span>a</span><span>i</span><span> </span>
-<span>V</span><span>a</span><span>n</span><span>g</span>
-</h1>
+  <header>
+    <h1 class="logo">
+      <span>J</span><span>a</span><span>i</span><span> </span>
+      <span>V</span><span>a</span><span>n</span><span>g</span>
+    </h1>
 
-<nav>
-<button class="active" onclick="showPage('home',this)">Home</button>
-<button onclick="showPage('about',this)">About</button>
-<button onclick="showPage('projects',this)">Projects</button>
-<button onclick="showPage('contact',this)">Contact</button>
-</nav>
-</header>
+    <nav>
+      <button class="active" onclick="showPage('home',this)">Home</button>
+      <button onclick="showPage('about',this)">About</button>
+      <button onclick="showPage('projects',this)">Projects</button>
+      <button onclick="showPage('contact',this)">Contact</button>
+    </nav>
+  </header>
 
-<div class="container">
+  <div class="container">
 
-<div id="home" class="card">
+    <!-- HOME -->
+    <div id="home" class="card">
 
-<div class="profile">
-<img src="c:\Users\Jai Vang\Downloads\my anime picture.jpg" onclick="openImg(this.src)">
+      <div class="profile">
+        <img src="my-anime.jpg" onclick="openImg(this.src)">
+        <div>
+          <h2>Welcome To My Website 😎</h2>
+          <p>Student | Learner | Developer</p>
+        </div>
+      </div>
 
-<div>
-<h2>Welcome To My Website 😎</h2>
-<p>Student | Learner | Developer</p>
-<p>I love websites, coding, games and business.</p>
-</div>
-</div>
+      <div class="video-grid">
+        <video controls>
+          <source src="c:\Users\Jai Vang\Downloads\ssstik.io_@ac.xl_1776829819767.mp4">
+        </video>
+        <video controls>
+          <source src="c:\Users\Jai Vang\Downloads\ssstik.io_@sofwal_cheteh_1776828803251 - Copy.mp4">
+        </video>
+        <video controls>
+          <source src="c:\Users\Jai Vang\Downloads\ssstik.io_@pixeldevp_1776828313122.mp4">
+        </video>
+        <video controls>
+          <source src="c:\Users\Jai Vang\Downloads\ssstik.io_@anonymous...trader_1776830982613.mp4">
+        </video> 
+      </div>
 
-<div class="video-grid">
+    </div>
 
-<video controls class="autoVideo">
-<source src="c:\Users\Jai Vang\Downloads\ssstik.io_@sofwal_cheteh_1776828803251.mp4">
-</video>
+    <!-- ABOUT -->
+    <div id="about" class="card hidden">
+      <h2>About Me</h2>
+      <p>Hello! My name is Jai.</p>
+      <p>I live in Laos 🇱🇦</p>
+      <p>I improve myself every day.</p>
+      <video controls>
+          <source src="c:\Users\Jai Vang\Downloads\Download (1).mp4">
+        </video>
+    </div>
 
-<video controls class="autoVideo">
-<source src="c:\Users\Jai Vang\Downloads\ssstik.io_@pixeldevp_1776828313122.mp4">
-</video>
+    <!-- PROJECTS -->
+    <div id="projects" class="card hidden">
+      <h2>My Projects</h2>
+      <p>🛒 Trading Website</p>
+      <p>🎮 Mini Games</p>
+      <p>🌐 Portfolio Website</p>
+    </div>
 
-<video controls class="autoVideo">
-<source src="c:\Users\Jai Vang\Downloads\ssstik.io_@daysoum.b_1776828171225.mp4">
-</video>
+    <!-- CONTACT -->
+    <div id="contact" class="card hidden">
+      <h2>Contact Me</h2>
+      <p>📧 Email: <a href="mailto:tay68600@gmail.com">tay68600@gmail.com</a></p>
+      <p>🎵 TikTok: <a href="https://tiktok.com/@mrjai01" target="_blank">Mr Jai Vang</a></p>
+    </div>
 
-</div>
+  </div>
 
-</div>
+  <footer>© 2026 JaiVang Website</footer>
 
-<div id="about" class="card hidden">
-<h2>About Me</h2>
-<p>Hello! My name is Jai.</p>
-<p>I live in Laos 🇱🇦</p>
-<p>I improve myself every day.</p>
-</div>
+  <div id="viewer" onclick="closeImg()">
+    <img id="bigImg">
+  </div>
 
-<div id="projects" class="card hidden">
-<h2>My Projects</h2>
-<p>🛒 Trading Website</p>
-<p>🎮 Mini Games</p>
-<p>🌐 Portfolio Website</p>
-</div>
+  <script>
+    function showPage(page, btn) {
+      document.querySelectorAll('.card').forEach(c => c.classList.add('hidden'));
+      document.getElementById(page).classList.remove('hidden');
+      document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    }
 
-<div id="contact" class="card hidden">
-<h2>Contact Me</h2>
-<p>📧 Email: <a href="mailto:tay68600@gmail.com">tay68600@gmail.com</a></p>
-<p>🎵 TikTok: <a href="https://tiktok.com/@mrjai01" target="_blank">Mr Jai</a></p>
-</div>
+    function openImg(src) {
+      document.getElementById("viewer").style.display = "flex";
+      document.getElementById("bigImg").src = src;
+    }
 
-</div>
-
-<footer>© 2026 JaiVang Website</footer>
-
-<div id="viewer" onclick="closeImg()">
-<img id="bigImg">
-</div>
-
-<script>
-function showPage(page,btn){
-document.querySelectorAll('.card').forEach(c=>c.classList.add('hidden'));
-document.getElementById(page).classList.remove('hidden');
-document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
-btn.classList.add('active');
-}
-
-function openImg(src){
-document.getElementById("viewer").style.display="flex";
-document.getElementById("bigImg").src=src;
-}
-
-function closeImg(){
-document.getElementById("viewer").style.display="none";
-}
-
-const videos=document.querySelectorAll(".autoVideo");
-
-videos.forEach(v=>{
-v.addEventListener("play",()=>{
-videos.forEach(o=>{
-if(o!==v){
-o.pause();
-o.currentTime=0;
-}
-});
-});
-});
-</script>
+    function closeImg() {
+      document.getElementById("viewer").style.display = "none";
+    }
+  </script>
 
 </body>
+
 </html>
