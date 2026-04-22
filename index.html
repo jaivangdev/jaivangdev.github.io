@@ -50,54 +50,20 @@
     }
 
     @keyframes jumpPause {
-      0% {
-        transform: translateY(0);
-      }
-
-      8% {
-        transform: translateY(-7px);
-      }
-
-      16% {
-        transform: translateY(0);
-      }
-
-      100% {
-        transform: translateY(0);
-      }
+      0% { transform: translateY(0); }
+      8% { transform: translateY(-7px); }
+      16% { transform: translateY(0); }
+      100% { transform: translateY(0); }
     }
 
-    .logo span:nth-child(1) {
-      animation-delay: 0s;
-    }
-
-    .logo span:nth-child(2) {
-      animation-delay: .1s;
-    }
-
-    .logo span:nth-child(3) {
-      animation-delay: .2s;
-    }
-
-    .logo span:nth-child(4) {
-      animation-delay: .3s;
-    }
-
-    .logo span:nth-child(5) {
-      animation-delay: .4s;
-    }
-
-    .logo span:nth-child(6) {
-      animation-delay: .5s;
-    }
-
-    .logo span:nth-child(7) {
-      animation-delay: .6s;
-    }
-
-    .logo span:nth-child(8) {
-      animation-delay: .7s;
-    }
+    .logo span:nth-child(1) { animation-delay: 0s; }
+    .logo span:nth-child(2) { animation-delay: .1s; }
+    .logo span:nth-child(3) { animation-delay: .2s; }
+    .logo span:nth-child(4) { animation-delay: .3s; }
+    .logo span:nth-child(5) { animation-delay: .4s; }
+    .logo span:nth-child(6) { animation-delay: .5s; }
+    .logo span:nth-child(7) { animation-delay: .6s; }
+    .logo span:nth-child(8) { animation-delay: .7s; }
 
     /* NAV */
     nav {
@@ -117,7 +83,6 @@
       font-weight: bold;
       transition: .25s;
       background: linear-gradient(135deg, #4facfe, #00f2fe);
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
     }
 
     nav button:hover {
@@ -163,7 +128,6 @@
       transition: transform 0.3s ease;
     }
 
-    /* ✅ FIX: hover แบบเดิมของคุณ (ขยายอย่างเดียว) */
     .profile img:hover {
       transform: scale(1.08);
     }
@@ -171,51 +135,18 @@
     /* VIDEO GRID */
     .video-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      grid-template-columns: repeat(4, 1fr);
       gap: 12px;
       margin-top: 16px;
     }
 
     video {
       width: 100%;
-      max-width: 240px;
       height: auto;
       aspect-ratio: 9/16;
       border-radius: 14px;
       background: black;
       object-fit: cover;
-    }
-
-    /* FOOTER */
-    footer {
-      margin: 30px auto;
-      width: 90%;
-      max-width: 320px;
-      text-align: center;
-      padding: 12px;
-      border-radius: 50px;
-      background: linear-gradient(135deg, #232526, #414345);
-    }
-
-    #viewer {
-      position: fixed;
-      inset: 0;
-      display: none;
-      justify-content: center;
-      align-items: center;
-      background: rgba(0, 0, 0, .6);
-      backdrop-filter: blur(6px);
-      z-index: 9999;
-    }
-
-    #viewer img {
-      max-width: 92%;
-      max-height: 92%;
-      border-radius: 16px;
-    }
-
-    .hidden {
-      display: none;
     }
 
     @media(max-width:768px) {
@@ -232,108 +163,112 @@
         flex-direction: column;
         text-align: center;
       }
+
+      .video-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
+
+    footer {
+      margin: 30px auto;
+      width: 90%;
+      max-width: 320px;
+      text-align: center;
+      padding: 12px;
+      border-radius: 50px;
+      background: linear-gradient(135deg, #232526, #414345);
+    }
+
+    .hidden {
+      display: none;
+    }
+
   </style>
 </head>
 
 <body>
 
-  <header>
-    <h1 class="logo">
-      <span>J</span><span>a</span><span>i</span><span> </span>
-      <span>V</span><span>a</span><span>n</span><span>g</span>
-    </h1>
+<header>
+  <h1 class="logo">
+    <span>J</span><span>a</span><span>i</span><span> </span>
+    <span>V</span><span>a</span><span>n</span><span>g</span>
+  </h1>
 
-    <nav>
-      <button class="active" onclick="showPage('home',this)">Home</button>
-      <button onclick="showPage('about',this)">About</button>
-      <button onclick="showPage('projects',this)">Projects</button>
-      <button onclick="showPage('contact',this)">Contact</button>
-    </nav>
-  </header>
+  <nav>
+    <button class="active" onclick="showPage('home',this)">Home</button>
+    <button onclick="showPage('about',this)">About</button>
+    <button onclick="showPage('projects',this)">Projects</button>
+    <button onclick="showPage('contact',this)">Contact</button>
+  </nav>
+</header>
 
-  <div class="container">
+<div class="container">
 
-    <!-- HOME -->
-    <div id="home" class="card">
+  <div id="home" class="card">
 
-      <div class="profile">
-        <img src="my-anime.jpg" onclick="openImg(this.src)">
-        <div>
-          <h2>Welcome To My Website 😎</h2>
-          <p>Student | Learner | Developer</p>
-        </div>
+    <div class="profile">
+      <img src="c:\Users\Jai Vang\Downloads\my anime picture.jpg">
+      <div>
+        <h2>Welcome To My Website 😎</h2>
+        <p>Student | Learner | Developer</p>
       </div>
-
-      <div class="video-grid">
-        <video controls>
-          <source src="c:\Users\Jai Vang\Downloads\ssstik.io_@ac.xl_1776829819767.mp4">
-        </video>
-        <video controls>
-          <source src="c:\Users\Jai Vang\Downloads\ssstik.io_@sofwal_cheteh_1776828803251 - Copy.mp4">
-        </video>
-        <video controls>
-          <source src="c:\Users\Jai Vang\Downloads\ssstik.io_@pixeldevp_1776828313122.mp4">
-        </video>
-        <video controls>
-          <source src="c:\Users\Jai Vang\Downloads\ssstik.io_@anonymous...trader_1776830982613.mp4">
-        </video> 
-      </div>
-
     </div>
 
-    <!-- ABOUT -->
-    <div id="about" class="card hidden">
-      <h2>About Me</h2>
-      <p>Hello! My name is Jai.</p>
-      <p>I live in Laos 🇱🇦</p>
-      <p>I improve myself every day.</p>
-      <video controls>
-          <source src="c:\Users\Jai Vang\Downloads\Download (1).mp4">
-        </video>
-    </div>
-
-    <!-- PROJECTS -->
-    <div id="projects" class="card hidden">
-      <h2>My Projects</h2>
-      <p>🛒 Trading Website</p>
-      <p>🎮 Mini Games</p>
-      <p>🌐 Portfolio Website</p>
-    </div>
-
-    <!-- CONTACT -->
-    <div id="contact" class="card hidden">
-      <h2>Contact Me</h2>
-      <p>📧 Email: <a href="mailto:tay68600@gmail.com">tay68600@gmail.com</a></p>
-      <p>🎵 TikTok: <a href="https://tiktok.com/@mrjai01" target="_blank">Mr Jai Vang</a></p>
+    <div class="video-grid">
+      <video controls class="autoVideo"><source src="c:\Users\Jai Vang\Downloads\ssstik.io_@ac.xl_1776829819767.mp4"></video>
+      <video controls class="autoVideo"><source src="c:\Users\Jai Vang\Downloads\ssstik.io_@sofwal_cheteh_1776828803251 - Copy.mp4"></video>
+      <video controls class="autoVideo"><source src="c:\Users\Jai Vang\Downloads\ssstik.io_@pixeldevp_1776828313122.mp4"></video>
+      <video controls class="autoVideo"><source src="c:\Users\Jai Vang\Downloads\ssstik.io_@anonymous...trader_1776830982613.mp4"></video>
     </div>
 
   </div>
 
-  <footer>© 2026 JaiVang Website</footer>
-
-  <div id="viewer" onclick="closeImg()">
-    <img id="bigImg">
+  <div id="about" class="card hidden">
+    <h2>About Me</h2>
+    <p>Hello! My name is Jai.</p>
+    <p>I live in Laos 🇱🇦</p>
+    <p>I improve myself every day.</p>
   </div>
 
-  <script>
-    function showPage(page, btn) {
-      document.querySelectorAll('.card').forEach(c => c.classList.add('hidden'));
-      document.getElementById(page).classList.remove('hidden');
-      document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-    }
+  <div id="projects" class="card hidden">
+    <h2>My Projects</h2>
+    <p>🛒 Trading Website</p>
+    <p>🎮 Mini Games</p>
+    <p>🌐 Portfolio Website</p>
+  </div>
 
-    function openImg(src) {
-      document.getElementById("viewer").style.display = "flex";
-      document.getElementById("bigImg").src = src;
-    }
+  <div id="contact" class="card hidden">
+    <h2>Contact Me</h2>
+    <p>📧 Email: <a href="mailto:tay68600@gmail.com">tay68600@gmail.com</a></p>
+    <p>🎵 TikTok: <a href="https://tiktok.com/@mrjai01" target="_blank">Mr Jai Vang</a></p>
+  </div>
 
-    function closeImg() {
-      document.getElementById("viewer").style.display = "none";
-    }
-  </script>
+</div>
+
+<footer>© 2026 JaiVang Website</footer>
+
+<script>
+function showPage(page, btn) {
+  document.querySelectorAll('.card').forEach(c => c.classList.add('hidden'));
+  document.getElementById(page).classList.remove('hidden');
+  document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+/* ✅ ONLY ADD: auto pause video */
+const videos = document.querySelectorAll(".autoVideo");
+
+videos.forEach(v => {
+  v.addEventListener("play", () => {
+    videos.forEach(other => {
+      if (other !== v) {
+        other.pause();
+        other.currentTime = 0;
+      }
+    });
+  });
+});
+</script>
 
 </body>
-
 </html>
