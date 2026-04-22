@@ -50,20 +50,54 @@
     }
 
     @keyframes jumpPause {
-      0% { transform: translateY(0); }
-      8% { transform: translateY(-7px); }
-      16% { transform: translateY(0); }
-      100% { transform: translateY(0); }
+      0% {
+        transform: translateY(0);
+      }
+
+      8% {
+        transform: translateY(-7px);
+      }
+
+      16% {
+        transform: translateY(0);
+      }
+
+      100% {
+        transform: translateY(0);
+      }
     }
 
-    .logo span:nth-child(1) { animation-delay: 0s; }
-    .logo span:nth-child(2) { animation-delay: .1s; }
-    .logo span:nth-child(3) { animation-delay: .2s; }
-    .logo span:nth-child(4) { animation-delay: .3s; }
-    .logo span:nth-child(5) { animation-delay: .4s; }
-    .logo span:nth-child(6) { animation-delay: .5s; }
-    .logo span:nth-child(7) { animation-delay: .6s; }
-    .logo span:nth-child(8) { animation-delay: .7s; }
+    .logo span:nth-child(1) {
+      animation-delay: 0s;
+    }
+
+    .logo span:nth-child(2) {
+      animation-delay: .1s;
+    }
+
+    .logo span:nth-child(3) {
+      animation-delay: .2s;
+    }
+
+    .logo span:nth-child(4) {
+      animation-delay: .3s;
+    }
+
+    .logo span:nth-child(5) {
+      animation-delay: .4s;
+    }
+
+    .logo span:nth-child(6) {
+      animation-delay: .5s;
+    }
+
+    .logo span:nth-child(7) {
+      animation-delay: .6s;
+    }
+
+    .logo span:nth-child(8) {
+      animation-delay: .7s;
+    }
 
     /* NAV */
     nav {
@@ -183,92 +217,145 @@
       display: none;
     }
 
+    #mylink {
+      color: white
+    }
   </style>
 </head>
 
 <body>
 
-<header>
-  <h1 class="logo">
-    <span>J</span><span>a</span><span>i</span><span> </span>
-    <span>V</span><span>a</span><span>n</span><span>g</span>
-  </h1>
+  <header>
+    <h1 class="logo">
+      <span>J</span>
+      <span>a</span>
+      <span>i</span>
+      <span> </span>
+      <span>V</span>
+      <span>a</span>
+      <span>n</span>
+      <span>g</span>
+    </h1>
 
-  <nav>
-    <button class="active" onclick="showPage('home',this)">Home</button>
-    <button onclick="showPage('about',this)">About</button>
-    <button onclick="showPage('projects',this)">Projects</button>
-    <button onclick="showPage('contact',this)">Contact</button>
-  </nav>
-</header>
+    <nav>
+      <button class="active" onclick="showPage('home',this)">Home</button>
+      <button onclick="showPage('about',this)">About</button>
+      <button onclick="showPage('projects',this)">Projects</button>
+      <button onclick="showPage('contact',this)">Contact</button>
+    </nav>
+  </header>
 
-<div class="container">
+  <div class="container">
 
-  <div id="home" class="card">
+    <div id="home" class="card">
 
-    <div class="profile">
-      <img src="my anime picture.jsp">
-      <div>
-        <h2>Welcome To My Website 😎</h2>
-        <p>Student | Learner | Developer</p>
+      <div class="profile">
+        <img src="c:\Users\Jai Vang\Downloads\my anime picture.jpg">
+        <div>
+          <h2>Welcome To My Website 😜</h2>
+          <p>Student | Learner | Developer</p>
+        </div>
+      </div>
+      <h3>Hello World, this is me:mr jai.😶‍🌫️</h3>
+      <p>i am a boy who is interested in web development and design. <br>
+      but Now,I don't have enough time to learn, the main reason is that my eyes hurt because I use computer too much, <br>
+      So, I'd like to use this time to improve my English first. <br> <br></p>
+      <hr> <br>
+      <h4>These are my favorite videos:</h4>
+      <div class="video-grid">
+        <video controls class="autoVideo">
+          <source src="c:\Users\Jai Vang\Downloads\ssstik.io_@ac.xl_1776829819767.mp4" type="video/mp4">
+        </video>
+        <video controls class="autoVideo">
+          <source src="c:\Users\Jai Vang\Downloads\ssstik.io_@sofwal_cheteh_1776828803251 - Copy.mp4" type="video/mp4">
+        </video>
+        <video controls class="autoVideo">
+          <source src="c:\Users\Jai Vang\Downloads\ssstik.io_@pixeldevp_1776828313122.mp4" type="video/mp4">
+        </video>
+        <video controls class="autoVideo">
+          <source src="c:\Users\Jai Vang\Downloads\ssstik.io_@anonymous...trader_1776830982613.mp4" type="video/mp4">
+        </video>
+      </div>
+
+    </div>
+
+    <div id="about" class="card hidden">
+      <h2>About Me</h2>
+      <p>Hello! My full name is <strong>Jai Vang</strong>. I am a <strong>Hhomg(tribe)</strong> boy.</p>
+      <p>
+        I live in a small village in Laos 🇱🇦 <br>
+        Now, in 2026, I am 17 years old and study at <strong>Midpaxa High School</strong>. <br>
+        I improve myself every day by learning new things, especially My English and Web Development. <br>
+      </p>
+      <br>
+        <hr>
+      <br>
+        <h3>My hobbies are:</h3>
+      <p>
+        -playing sports and guitar.<br>
+        -I really enjoy with listening to podcasts and songs.
+      </p>
+      
+      <div class="video-grid">
+      <video controls class="autoVideo">
+        <source src="c:\Users\Jai Vang\Downloads\Download (1).mp4" type="video/mp4">
+      </video>
+      <video controls class="autoVideo">
+        <source src="c:\Users\Jai Vang\Downloads\WhatsApp Video 2026-01-16 at 20.01.16.mp4" type="video/mp4">
+      </video>
+      <video controls class="autoVideo">
+        <source src="c:\Users\Jai Vang\Downloads\ssstik.io_@daysoum.b_1776828171225.mp4" type="video/mp4">
+      </video>
+      <video controls class="autoVideo">
+        <source src="c:\Users\Jai Vang\Downloads\WhatsApp Video 2026-01-16 at 20.01.15.mp4" type="video/mp4">
+      </video>
+      <video controls class="autoVideo">
+        <source src="c:\Users\Jai Vang\Downloads\Download (2).mp4" type="video/mp4">
+      </video>
       </div>
     </div>
 
-    <div class="video-grid">
-      <video controls class="autoVideo"><source src="c:\Users\Jai Vang\Downloads\ssstik.io_@ac.xl_1776829819767.mp4"></video>
-      <video controls class="autoVideo"><source src="c:\Users\Jai Vang\Downloads\ssstik.io_@sofwal_cheteh_1776828803251 - Copy.mp4"></video>
-      <video controls class="autoVideo"><source src="c:\Users\Jai Vang\Downloads\ssstik.io_@pixeldevp_1776828313122.mp4"></video>
-      <video controls class="autoVideo"><source src="c:\Users\Jai Vang\Downloads\ssstik.io_@anonymous...trader_1776830982613.mp4"></video>
+    <div id="projects" class="card hidden">
+      <h2>My Projects</h2>
+      <p>🛒 I would like to build a shopping website for my country.</p>
+      <p>🏳️ The most that I really want to do is: make my language readable aloud by AI </p>
+      <p>🌐 Portfolio Website</p>
+    </div>
+
+    <div id="contact" class="card hidden">
+      <h2>Contact Me</h2>
+      <p id="#mylink">📧 Email: <a href="mailto:tay68600@gmail.com" target="_blank" id="mylink">tay68600@gmail.com</a>
+      </p>
+      <p>🎵 TikTok: <a href="https://tiktok.com/@mrjai01" target="_blank" id="mylink">Mr Jai Vang</a></p>
     </div>
 
   </div>
 
-  <div id="about" class="card hidden">
-    <h2>About Me</h2>
-    <p>Hello! My name is Jai.</p>
-    <p>I live in Laos 🇱🇦</p>
-    <p>I improve myself every day.</p>
-  </div>
+  <footer>© 2026 JaiVang Website</footer>
 
-  <div id="projects" class="card hidden">
-    <h2>My Projects</h2>
-    <p>🛒 Trading Website</p>
-    <p>🎮 Mini Games</p>
-    <p>🌐 Portfolio Website</p>
-  </div>
+  <script>
+    function showPage(page, btn) {
+      document.querySelectorAll('.card').forEach(c => c.classList.add('hidden'));
+      document.getElementById(page).classList.remove('hidden');
+      document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    }
 
-  <div id="contact" class="card hidden">
-    <h2>Contact Me</h2>
-    <p>📧 Email: <a href="mailto:tay68600@gmail.com">tay68600@gmail.com</a></p>
-    <p>🎵 TikTok: <a href="https://tiktok.com/@mrjai01" target="_blank">Mr Jai Vang</a></p>
-  </div>
+    /* ✅ ONLY ADD: auto pause video */
+    const videos = document.querySelectorAll(".autoVideo");
 
-</div>
-
-<footer>© 2026 JaiVang Website</footer>
-
-<script>
-function showPage(page, btn) {
-  document.querySelectorAll('.card').forEach(c => c.classList.add('hidden'));
-  document.getElementById(page).classList.remove('hidden');
-  document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-}
-
-/* ✅ ONLY ADD: auto pause video */
-const videos = document.querySelectorAll(".autoVideo");
-
-videos.forEach(v => {
-  v.addEventListener("play", () => {
-    videos.forEach(other => {
-      if (other !== v) {
-        other.pause();
-        other.currentTime = 0;
-      }
+    videos.forEach(v => {
+      v.addEventListener("play", () => {
+        videos.forEach(other => {
+          if (other !== v) {
+            other.pause();
+            other.currentTime = 0;
+          }
+        });
+      });
     });
-  });
-});
-</script>
+  </script>
 
 </body>
+
 </html>
