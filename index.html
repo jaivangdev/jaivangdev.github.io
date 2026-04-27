@@ -21,7 +21,6 @@
       overflow-x: hidden;
     }
 
-    /* HEADER */
     header {
       position: sticky;
       top: 0;
@@ -36,7 +35,6 @@
       gap: 10px;
     }
 
-    /* LOGO */
     .logo {
       font-size: clamp(22px, 4vw, 34px);
       font-weight: bold;
@@ -99,7 +97,6 @@
       animation-delay: .7s;
     }
 
-    /* NAV */
     nav {
       display: flex;
       gap: 6px;
@@ -128,14 +125,12 @@
       color: black;
     }
 
-    /* CONTAINER */
     .container {
       max-width: 1100px;
       margin: auto;
       padding: 16px;
     }
 
-    /* CARD */
     .card {
       background: rgba(255, 255, 255, 0.08);
       border: 1px solid rgba(255, 255, 255, 0.08);
@@ -145,7 +140,6 @@
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
     }
 
-    /* PROFILE */
     .profile {
       display: flex;
       gap: 16px;
@@ -166,7 +160,6 @@
       transform: scale(1.08);
     }
 
-    /* VIDEO GRID */
     .video-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -182,7 +175,7 @@
       background: black;
       object-fit: cover;
     }
-
+    
     @media(max-width:768px) {
       header {
         flex-direction: column;
@@ -259,10 +252,12 @@
       <h3>Hello World, this is me:mr jai.😶‍🌫️</h3>
       <p>i am a boy who is interested in web development and design. <br>
       but Now,I don't have enough time to learn, the main reason is that my eyes hurt because I use computer too much, <br>
-      So, I'd like to use this time to improve my English first. <br> <br></p>
+      So, I'd like to use this time focus on my English first. <br> 
+       <br> </p>
       <hr> <br>
       <h4>These are my favorite videos:</h4>
       <div class="video-grid">
+
         <video controls class="autoVideo">
           <source src="video/4.mp4" type="video/mp4">
         </video>
@@ -275,6 +270,7 @@
         <video controls class="autoVideo">
           <source src="video/7.mp4" type="video/mp4">
         </video>
+        
       </div>
 
     </div>
@@ -293,6 +289,7 @@
         <h3>My hobbies are:</h3>
       <p>
         -playing sports and guitar.<br>
+        -reading books, exercise and sleep hahaha <br>
         -I really enjoy with listening to podcasts and songs.
       </p>
       
@@ -315,15 +312,23 @@
     <div id="projects" class="card hidden">
       <h2>My Projects</h2>
       <p>🛒 I would like to build a shopping website for my country.</p>
-      <p>🏳️ The most that I really want to do is: make my language readable aloud by AI </p>
+      <p>🏳️ I'd like to make my language readable aloud by AI </p>
       <p>🌐 Portfolio Website</p>
+      <p>🧬 I would like to create a AI assistant</p> 
+      <br>
+      <hr>
+      <br>
+      <p>I'll show you when it's ready! <br>
+        and promise that I will work hard to make it happen. <br>
+        but now, I am still learning and improving my skills, so i don't have any project to show you yet. 😜 <br>
+      </p>
     </div>
 
     <div id="contact" class="card hidden">
       <h2>Contact Me</h2>
       <p id="#mylink">📧 Email: <a href="mailto:tay68600@gmail.com" target="_blank" id="mylink">tay68600@gmail.com</a>
       </p>
-      <p>🎵 TikTok: <a href="https://tiktok.com/@mrjai01" target="_blank" id="mylink">Mr Jai Vang</a></p>
+      <p> 📽️TikTok: <a href="https://tiktok.com/@mrjai01" target="_blank" id="mylink">Mr Jai Vang</a></p>
     </div>
 
   </div>
@@ -338,8 +343,44 @@
       btn.classList.add('active');
     }
 
-    /* ✅ ONLY ADD: auto pause video */
     const videos = document.querySelectorAll(".autoVideo");
+
+
+const profile = document.querySelector('img[src="images/profile.jpg"]');
+
+profile.onclick = function () {
+    const viewer = document.createElement("div");
+
+    viewer.innerHTML = `
+        <div id="imgView" style="
+            position:fixed;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            background:rgba(0,0,0,0.95);
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            z-index:99999;
+            padding:15px;
+        ">
+            <img src="images/profile.jpg" style="
+                max-width:95%;
+                max-height:95%;
+                object-fit:contain;
+                border-radius:12px;
+            ">
+        </div>
+    `;
+
+    document.body.appendChild(viewer);
+
+    document.getElementById("imgView").onclick = function () {
+        this.remove();
+    };
+};
+
 
     videos.forEach(v => {
       v.addEventListener("play", () => {
