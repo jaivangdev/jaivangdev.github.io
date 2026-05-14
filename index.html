@@ -24,24 +24,32 @@
       100% { background-position: 0% 50%; }
     }
 
-    /* --- ส่วนที่เพิ่ม: Animation สำหรับเลื่อนเข้ามา --- */
+    /* Animation สำหรับเลื่อนหน้า Card เข้ามา */
     @keyframes slideInEffect {
-      from {
-        opacity: 0;
-        transform: translateY(20px); /* ขยับจากข้างล่างขึ้นมา */
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .slide-in {
       animation: slideInEffect 0.5s ease-out forwards;
     }
-    /* ------------------------------------------ */
 
-    /* 2. MODERN NAVIGATION - คงเดิม */
+    /* [จุดที่เปลี่ยน] CSS สำหรับการขยายรูปโปรไฟล์ให้นุ่มนวล */
+    @keyframes smoothPopUp {
+      0% { transform: scale(0.4); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .zoom-img-style {
+      max-width: 85%;
+      max-height: 85%;
+      border-radius: 20px;
+      border: 4px solid white;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+      animation: smoothPopUp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* ทำให้มีการเด้งนิดๆ */
+    }
+
+    /* 2. MODERN NAVIGATION */
     nav {
       display: flex;
       gap: 8px;
@@ -61,6 +69,15 @@
       transition: all 0.3s ease;
     }
 
+    /* ปรับขนาดปุ่มให้เล็กลงในมือถือตามที่คุณต้องการก่อนหน้านี้ */
+    @media(max-width:768px) {
+      nav button {
+        padding: 5px 12px;
+        font-size: 11px;
+      }
+      nav { gap: 5px; }
+    }
+
     nav button:hover {
       transform: translateY(-2px);
       border-color: #00d2ff;
@@ -72,7 +89,7 @@
       box-shadow: 0 0 15px rgba(0, 210, 255, 0.4);
     }
 
-    /* 3. PROFILE HOVER - คงเดิม */
+    /* 3. PROFILE HOVER */
     .profile img {
       width: 120px;
       height: 120px;
@@ -211,7 +228,6 @@
   </header>
 
   <div class="container">
-
     <div id="home" class="card slide-in">
       <div class="profile">
         <img src="images/profile.jpg" id="profilePic">
@@ -276,40 +292,50 @@
       <p>Email: <a href="mailto:tay68600@gmail.com" id="mylink">tay68600@gmail.com</a></p>
       <p>TikTok: <a href="https://tiktok.com/@mrjai01" target="_blank" id="mylink">Mr Jai Vang</a></p>
     </div>
-
   </div>
 
   <footer>© 2026 JaiVang Website</footer>
 
   <script>
     function showPage(page, btn) {
-      // 1. ซ่อนทุกหน้า และเอา class animation ออก
       document.querySelectorAll('.card').forEach(c => {
         c.classList.add('hidden');
         c.classList.remove('slide-in');
       });
-
-      // 2. แสดงหน้าที่กดเลือก
       const activeCard = document.getElementById(page);
       activeCard.classList.remove('hidden');
-
-      // 3. ใส่ class slide-in กลับเข้าไปเพื่อให้มันเล่น Animation ทุกครั้งที่กด
-      // ใช้ความสูง offsetWidth เพื่อบังคับให้ browser รีเซ็ตสถานะ animation
       void activeCard.offsetWidth; 
       activeCard.classList.add('slide-in');
-
-      // 4. เปลี่ยนสถานะปุ่ม
       document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
     }
 
-    // Zoom profile picture - คงเดิม
+    // --- [ปรับปรุงใหม่] Profile Zoom แบบค่อยๆ ขยายและฉากหลังไม่มืดเกินไป ---
     document.getElementById("profilePic").onclick = function() {
       const viewer = document.createElement("div");
-      viewer.style = "position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);display:flex;justify-content:center;align-items:center;z-index:99999;";
-      viewer.innerHTML = `<img src="${this.src}" style="max-width:90%;max-height:90%;border-radius:12px;">`;
+      
+      // ตั้งค่าพื้นหลังจางๆ (0.4) และเบลอนิดๆ เพื่อให้เห็นหน้าเว็บปกติ
+      viewer.style = `
+        position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+        background: rgba(0, 0, 0, 0.4); 
+        backdrop-filter: blur(5px);
+        display: flex; justify-content: center; align-items: center;
+        z-index: 99999; cursor: pointer;
+        transition: opacity 0.3s ease;
+      `;
+      
+      const img = document.createElement("img");
+      img.src = this.src;
+      img.className = "zoom-img-style"; // ใช้ CSS Animation ที่เราสร้างไว้ข้างบน
+      
+      viewer.appendChild(img);
       document.body.appendChild(viewer);
-      viewer.onclick = () => viewer.remove();
+
+      // คลิกเพื่อปิด
+      viewer.onclick = () => {
+        viewer.style.opacity = "0";
+        setTimeout(() => viewer.remove(), 300);
+      };
     };
 
     const videos = document.querySelectorAll(".autoVideo");
