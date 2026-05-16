@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-9HBHWTEBDW"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9HBHWTEBDW"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -10,16 +10,14 @@
 
   gtag('config', 'G-9HBHWTEBDW');
 </script>
+  <div id="tsparticles"></div>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JaiVangDev - Developer Portfolio</title>
-
-  <meta name="description" content="JaiVangDev official website. Coding, projects, programming and web development.">
-  <meta name="keywords"
-      content="JaiVangDev, developer, coding, github, programming, My personal web, Portfolio">
-  
+  <title>JaiVang Personal Website</title>
+  <link rel="icon" type="image/jpeg" href="images/profile.jpg">
 
   <style>
+    /* 1. ANIMATED BACKGROUND - คงเดิม */
     body {
       background: #0f0c29;
       background: linear-gradient(-45deg, #0f0c29, #302b63, #24243e, #0f0c29);
@@ -36,6 +34,7 @@
       100% { background-position: 0% 50%; }
     }
 
+    /* Animation สำหรับเลื่อนหน้า Card เข้ามา */
     @keyframes slideInEffect {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
@@ -45,6 +44,7 @@
       animation: slideInEffect 0.5s ease-out forwards;
     }
 
+    /* [จุดที่เปลี่ยน] CSS สำหรับการขยายรูปโปรไฟล์ให้นุ่มนวล */
     @keyframes smoothPopUp {
       0% { transform: scale(0.4); opacity: 0; }
       100% { transform: scale(1); opacity: 1; }
@@ -59,6 +59,7 @@
       animation: smoothPopUp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* ทำให้มีการเด้งนิดๆ */
     }
 
+    /* 2. MODERN NAVIGATION */
     nav {
       display: flex;
       gap: 8px;
@@ -78,6 +79,7 @@
       transition: all 0.3s ease;
     }
 
+    /* ปรับขนาดปุ่มให้เล็กลงในมือถือตามที่คุณต้องการก่อนหน้านี้ */
     @media(max-width:768px) {
       nav button {
         padding: 5px 12px;
@@ -216,6 +218,15 @@
 
     .hidden { display: none; }
     #mylink { color: white; text-decoration: none; }
+
+    #tsparticles{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
   </style>
 </head>
 
@@ -304,6 +315,8 @@
 
   <footer>© 2026 JaiVang Website</footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+
   <script>
     function showPage(page, btn) {
       document.querySelectorAll('.card').forEach(c => {
@@ -318,9 +331,11 @@
       btn.classList.add('active');
     }
 
+    // --- [ปรับปรุงใหม่] Profile Zoom แบบค่อยๆ ขยายและฉากหลังไม่มืดเกินไป ---
     document.getElementById("profilePic").onclick = function() {
       const viewer = document.createElement("div");
       
+      // ตั้งค่าพื้นหลังจางๆ (0.4) และเบลอนิดๆ เพื่อให้เห็นหน้าเว็บปกติ
       viewer.style = `
         position: fixed; top: 0; left: 0; width: 100%; height: 100%;
         background: rgba(0, 0, 0, 0.4); 
@@ -332,12 +347,12 @@
       
       const img = document.createElement("img");
       img.src = this.src;
-      img.className = "zoom-img-style";
+      img.className = "zoom-img-style"; // ใช้ CSS Animation ที่เราสร้างไว้ข้างบน
       
       viewer.appendChild(img);
       document.body.appendChild(viewer);
 
-     
+      // คลิกเพื่อปิด
       viewer.onclick = () => {
         viewer.style.opacity = "0";
         setTimeout(() => viewer.remove(), 300);
@@ -355,6 +370,22 @@
         });
       });
     });
+
+    tsParticles.load("tsparticles", {
+  particles: {
+    number: { value: 60 },
+    color: { value: "#ffffff" },
+    links: {
+      enable: true,
+      color: "#ffffff"
+    },
+    move: {
+      enable: true,
+      speed: 1.5
+    },
+    size: { value: 2 }
+  }
+});
   </script>
 
 </body>
