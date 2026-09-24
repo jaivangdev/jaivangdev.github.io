@@ -1,398 +1,395 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
- <script async src="https://www.googletagmanager.com/gtag/js?id=G-9HBHWTEBDW"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9HBHWTEBDW"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-9HBHWTEBDW');
 </script>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JaiVang Personal Website</title>
-  <link rel="shortcut icon" type="image/x-icon" href="images/profile.jpg">
-  
-  <style>
-    /* 1. ANIMATED BACKGROUND - คงเดิม */
-    body {
-      background: #0f0c29;
-      background: linear-gradient(-45deg, #0f0c29, #302b63, #24243e, #0f0c29);
-      background-size: 400% 400%;
-      animation: gradientMove 15s ease infinite;
-      color: white;
-      min-height: 100vh;
-      overflow-x: hidden;
-    }
+<meta charset="UTF-8">
+<script>document.documentElement.classList.add("js")</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jai Vang | Personal Website</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Noto+Sans+Thai:wght@400;600;800&family=Noto+Sans+Lao:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="shortcut icon" type="image/x-icon" href="images/profile.jpg">
+<style>
+  :root { --bg:#0f0c29; --card:rgba(255,255,255,.07); --line:rgba(255,255,255,.12); --a:#00d2ff; --b:#3a7bd5; --muted:#b9bfd9; }
+  * { margin:0; padding:0; box-sizing:border-box; font-family:"Inter","Noto Sans Thai","Noto Sans Lao",sans-serif; }
+  html { scroll-behavior:smooth; scroll-padding-top:80px; }
+  body { background:radial-gradient(900px 520px at 12% -8%,rgba(58,123,213,.28),transparent 60%),radial-gradient(760px 520px at 100% 35%,rgba(0,210,255,.12),transparent 60%),radial-gradient(700px 500px at 0% 100%,rgba(90,60,200,.16),transparent 60%),#060a15; background-attachment:fixed; color:#fff; min-height:100vh; overflow-x:hidden; line-height:1.6; }
+  @keyframes bg { 0%,100%{background-position:0 50%} 50%{background-position:100% 50%} }
+  a { color:inherit; }
+  :focus-visible { outline:2px solid var(--a); outline-offset:3px; }
 
-    @keyframes gradientMove {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
+  header { position:sticky; top:0; z-index:100; background:rgba(6,10,21,.78); backdrop-filter:blur(12px); border-bottom:1px solid var(--line); }
+  .bar { max-width:1100px; margin:auto; padding:10px 16px; display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap; }
+  .logo { display:flex; font-size:clamp(24px,4vw,30px); font-weight:800; letter-spacing:1px; text-decoration:none; color:#fff; white-space:nowrap; }
+  .logo span { display:inline-block; animation:jumpPause 4s infinite; }
+  .logo .dot { color:var(--a); text-shadow:0 0 14px rgba(0,210,255,.7); }
+  @keyframes jumpPause { 0%,100%{transform:translateY(0)} 8%{transform:translateY(-8px)} 16%{transform:translateY(0)} }
+  .logo span:nth-child(2){animation-delay:.1s} .logo span:nth-child(3){animation-delay:.2s} .logo span:nth-child(4){animation-delay:.3s}
+  .logo span:nth-child(5){animation-delay:.4s} .logo span:nth-child(6){animation-delay:.5s} .logo span:nth-child(7){animation-delay:.6s}
+  .logo span:nth-child(8){animation-delay:.7s} .logo span:nth-child(9){animation-delay:.8s}
+  nav { display:flex; gap:26px; }
+  nav a { position:relative; padding:6px 0; text-decoration:none; font-size:15px; font-weight:600; color:var(--muted); transition:color .25s; }
+  nav a::after { content:""; position:absolute; left:0; bottom:0; width:100%; height:2px; border-radius:2px; background:linear-gradient(90deg,var(--a),var(--b)); transform:scaleX(0); transform-origin:left; transition:transform .3s; }
+  nav a:hover, nav a.active { color:#fff; }
+  nav a:hover::after, nav a.active::after { transform:scaleX(1); }
+  .lang { position:relative; }
+  .lang-btn { display:flex; align-items:center; gap:8px; padding:7px 14px; border-radius:50px; border:1px solid var(--line); background:rgba(255,255,255,.07); color:#fff; font-size:13px; font-weight:600; cursor:pointer; transition:.25s; }
+  .lang-btn:hover, .lang.open .lang-btn { border-color:var(--a); box-shadow:0 0 14px rgba(0,210,255,.25); }
+  .lang-btn .caret { font-size:10px; transition:transform .25s; }
+  .lang.open .caret { transform:rotate(180deg); }
+  .lang-menu { position:absolute; right:0; top:calc(100% + 8px); min-width:160px; list-style:none; padding:6px; border-radius:16px; background:rgba(10,15,32,.97); backdrop-filter:blur(14px); border:1px solid var(--line); box-shadow:0 14px 40px rgba(0,0,0,.5); opacity:0; visibility:hidden; transform:translateY(-6px); transition:.2s; }
+  .lang.open .lang-menu { opacity:1; visibility:visible; transform:none; }
+  .lang-menu li { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:9px 12px; border-radius:10px; font-size:14px; cursor:pointer; }
+  .lang-menu li:hover { background:rgba(255,255,255,.1); }
+  .lang-menu li.on { background:linear-gradient(135deg,var(--a),var(--b)); font-weight:700; }
+  .lang-menu li.on::after { content:"✓"; }
+  #typewriter1::after { content:"|"; margin-left:4px; color:var(--a); font-weight:300; animation:blink .8s steps(1) infinite; }
+  @keyframes blink { 50%{opacity:0} }
 
-    /* Animation สำหรับเลื่อนหน้า Card เข้ามา */
-    @keyframes slideInEffect {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+  section { max-width:1100px; margin:auto; padding:70px 16px 30px; }
+  h2.title { font-size:clamp(26px,5vw,38px); margin-bottom:8px; }
+  h2.title::after { content:""; display:block; width:56px; height:4px; border-radius:4px; background:linear-gradient(90deg,var(--a),var(--b)); margin-top:8px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:18px; padding:24px; }
+  .muted { color:var(--muted); }
 
-    .slide-in {
-      animation: slideInEffect 0.5s ease-out forwards;
-    }
+  /* Hero */
+  #home { min-height:calc(100vh - 60px); display:flex; align-items:center; padding-top:30px; }
+  .hero { display:grid; grid-template-columns:1.2fr 1fr; gap:32px; align-items:center; width:100%; }
+  .hero h1 { font-size:clamp(2rem,7vw,3.2rem); font-weight:800; line-height:1.15; margin-bottom:12px; color:#fff; }
+  .social a i, .contact .card i { margin-right:8px; color:var(--a); }
+  .contact .card i { font-size:22px; display:block; margin-bottom:6px; }
+  .grad { background:linear-gradient(90deg,var(--a),var(--b)); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .roles { font-size:18px; color:var(--muted); margin-bottom:14px; }
+  .btns { display:flex; gap:10px; flex-wrap:wrap; margin:18px 0; }
+  .btn { display:inline-block; padding:11px 24px; border-radius:50px; text-decoration:none; font-weight:700; border:1px solid var(--a); transition:.25s; }
+  .btn.fill { background:linear-gradient(135deg,var(--a),var(--b)); border:none; }
+  .btn:hover { transform:translateY(-2px); }
+  .social { display:flex; gap:10px; flex-wrap:wrap; }
+  .social a { padding:6px 14px; border:1px solid var(--line); border-radius:50px; font-size:13px; text-decoration:none; }
+  .social a:hover { border-color:var(--a); }
+  .photo { text-align:center; }
+  .photo img { width:min(300px,70vw); aspect-ratio:1; object-fit:cover; border-radius:50%; border:4px solid #fff; box-shadow:0 0 0 10px rgba(0,210,255,.15),0 20px 60px rgba(0,0,0,.5); cursor:zoom-in; transition:transform .3s; }
+  .photo img:hover { transform:scale(1.03); }
+  .quote { margin-top:18px; font-style:italic; color:var(--muted); }
 
-    /* [จุดที่เปลี่ยน] CSS สำหรับการขยายรูปโปรไฟล์ให้นุ่มนวล */
-    @keyframes smoothPopUp {
-      0% { transform: scale(0.4); opacity: 0; }
-      100% { transform: scale(1); opacity: 1; }
-    }
+  /* About */
+  .about { display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:20px; }
+  .stats { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:16px; }
+  .stat { text-align:center; padding:14px 6px; border-radius:14px; background:rgba(255,255,255,.06); }
+  .stat b { display:block; font-size:28px; color:var(--a); }
+  .stat span { font-size:12px; color:var(--muted); }
+  .facts p { padding:8px 0; border-bottom:1px solid var(--line); }
+  .facts p:last-child { border:0; }
+  .facts b { display:inline-block; min-width:110px; color:var(--a); }
 
-    .zoom-img-style {
-      max-width: 85%;
-      max-height: 85%;
-      border-radius: 20px;
-      border: 4px solid white;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-      animation: smoothPopUp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* ทำให้มีการเด้งนิดๆ */
-    }
+  /* Skills / hobbies / videos */
+  .chips { display:flex; flex-wrap:wrap; gap:10px; margin:18px 0 26px; }
+  .chip { padding:9px 18px; border-radius:50px; background:var(--card); border:1px solid var(--line); }
+  .video-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; }
+  video { width:100%; aspect-ratio:9/16; object-fit:cover; border-radius:14px; background:#000; }
+  h3.sub { margin:26px 0 12px; font-size:20px; }
 
-    /* 2. MODERN NAVIGATION */
-    nav {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
+  /* Projects */
+  .proj { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:14px; }
+  .proj .card { text-decoration:none; transition:.25s; }
+  .proj a.card:hover { translate:0 -4px; border-color:var(--a); }
+  .proj .ico { font-size:30px; }
+  .tag { display:inline-block; font-size:12px; padding:2px 10px; border-radius:50px; margin-top:8px; }
+  .tag.live { background:rgba(0,210,150,.2); color:#4dffc3; }
+  .tag.wip { background:rgba(255,190,0,.18); color:#ffd166; }
 
-    nav button {
-      background: transparent;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      padding: 8px 18px;
-      border-radius: 50px;
-      cursor: pointer;
-      color: white;
-      font-size: 13px;
-      font-weight: bold;
-      transition: all 0.3s ease;
-    }
+  /* Contact */
+  .contact { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px; margin-top:20px; }
+  .contact a.card { text-decoration:none; transition:.25s; }
+  .contact a.card:hover { border-color:var(--a); translate:0 -3px; }
+  .contact small { color:var(--muted); display:block; }
 
-    /* ปรับขนาดปุ่มให้เล็กลงในมือถือตามที่คุณต้องการก่อนหน้านี้ */
-    @media(max-width:768px) {
-      nav button {
-        padding: 5px 12px;
-        font-size: 11px;
-      }
-      nav { gap: 5px; }
-    }
+  footer { margin-top:60px; border-top:1px solid var(--line); background:rgba(0,0,0,.25); }
+  .foot { max-width:1100px; margin:auto; padding:32px 16px; display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:24px; }
+  .foot ul { list-style:none; } .foot li { margin:4px 0; } .foot a { text-decoration:none; color:var(--muted); } .foot a:hover { color:#fff; }
+  .copy { text-align:center; padding:14px; font-size:13px; color:var(--muted); border-top:1px solid var(--line); }
 
-    nav button:hover {
-      transform: translateY(-2px);
-      border-color: #00d2ff;
-    }
-
-    nav button.active {
-      background: linear-gradient(135deg, #00d2ff, #3a7bd5);
-      border: none;
-      box-shadow: 0 0 15px rgba(0, 210, 255, 0.4);
-    }
-
-    /* 3. PROFILE HOVER */
-    .profile img {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid white;
-      transition: transform 0.3s ease; 
-      cursor: pointer;
-    }
-
-    .profile img:hover {
-      transform: scale(1.1); 
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(20, 20, 20, 0.75);
-      backdrop-filter: blur(12px);
-      padding: 12px 16px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .logo {
-      font-size: clamp(22px, 4vw, 34px);
-      font-weight: bold;
-      letter-spacing: 2px;
-      display: flex;
-    }
-
-    .logo span {
-      display: inline-block;
-      animation: jumpPause 4s infinite;
-    }
-
-    @keyframes jumpPause {
-      0%, 100% { transform: translateY(0); }
-      8% { transform: translateY(-7px); }
-      16% { transform: translateY(0); }
-    }
-
-    .logo span:nth-child(1) { animation-delay: 0s; }
-    .logo span:nth-child(2) { animation-delay: .1s; }
-    .logo span:nth-child(3) { animation-delay: .2s; }
-    .logo span:nth-child(4) { animation-delay: .3s; }
-    .logo span:nth-child(5) { animation-delay: .4s; }
-    .logo span:nth-child(6) { animation-delay: .5s; }
-    .logo span:nth-child(7) { animation-delay: .6s; }
-    .logo span:nth-child(8) { animation-delay: .7s; }
-
-    .container {
-      max-width: 1100px;
-      margin: auto;
-      padding: 16px;
-    }
-
-    .card {
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      padding: 20px;
-      border-radius: 18px;
-      margin-top: 16px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
-    }
-
-    .profile {
-      display: flex;
-      gap: 16px;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-
-    .video-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
-      margin-top: 16px;
-    }
-
-    video {
-      width: 100%;
-      height: auto;
-      aspect-ratio: 9/16;
-      border-radius: 14px;
-      background: black;
-      object-fit: cover;
-    }
-    
-    @media(max-width:768px) {
-      header { flex-direction: column; }
-      .video-grid { grid-template-columns: repeat(2, 1fr); }
-      .profile { flex-direction: column; text-align: center; }
-    }
-
-    footer {
-      margin: 30px auto;
-      width: 90%;
-      max-width: 320px;
-      text-align: center;
-      padding: 12px;
-      border-radius: 50px;
-      background: linear-gradient(135deg, #232526, #414345);
-    }
-
-    .hidden { display: none; }
-    #mylink { color: white; text-decoration: none; }
-
-  </style>
+  @media(max-width:768px){
+    .hero,.about,.foot { grid-template-columns:1fr; }
+    .hero { text-align:center; } .hero .btns,.hero .social { justify-content:center; }
+    .photo { order:-1; } .bar { justify-content:space-between; }
+    .bar { padding:8px 14px; }
+    nav { order:3; width:100%; justify-content:space-between; gap:0; }
+    nav a { font-size:13px; padding:4px 0; }
+    .video-grid { grid-template-columns:repeat(2,1fr); }
+    #home { min-height:auto; }
+  }
+  /* Slide-in from the sides when scrolled into view */
+  .js .rv { opacity:0; transition:opacity .9s ease, transform .9s cubic-bezier(.2,.7,.2,1), translate .25s ease, border-color .25s; will-change:transform,opacity; }
+  .js .rv.l { transform:translateX(-110px); } .js .rv.r { transform:translateX(110px); } .js .rv.u { transform:translateY(60px); }
+  .js .rv.in { opacity:1; transform:none; }
+  main { overflow-x:clip; } footer { overflow-x:clip; }
+  @media(prefers-reduced-motion:reduce){ body{animation:none!important} html{scroll-behavior:auto} }
+</style>
 </head>
-
 <body>
 
-  <header>
-    <h1 class="logo">
-      <span>J</span><span>a</span><span>i</span><span>&nbsp;</span>
-      <span>V</span><span>a</span><span>n</span><span>g</span>
-    </h1>
-
-    <nav>
-      <button class="active" onclick="showPage('home',this)">Home</button>
-      <button onclick="showPage('about',this)">About</button>
-      <button onclick="showPage('projects',this)">Projects</button>
-      <button onclick="showPage('contact',this)">Contact</button>
+<header>
+  <div class="bar">
+    <a href="#home" class="logo" aria-label="Jai Vang"><span>J</span><span>a</span><span>i</span><span>&nbsp;</span><span>V</span><span>a</span><span>n</span><span>g</span><span class="dot"></span></a>
+    <nav id="nav">
+      <a href="#home" class="active" data-i="nHome">Home</a>
+      <a href="#about" data-i="nAbout">About</a>
+      <a href="#skills" data-i="nSkills">Interests</a>
+      <a href="#projects" data-i="nProjects">Projects</a>
+      <a href="#contact" data-i="nContact">Contact</a>
     </nav>
-  </header>
+    <div class="lang" id="lang">
+      <button class="lang-btn" id="langBtn" aria-haspopup="listbox" aria-expanded="false"><span>🌐</span><span id="langNow">English</span><span class="caret">▾</span></button>
+      <ul class="lang-menu" role="listbox">
+        <li role="option" data-l="en" class="on">English</li>
+        <li role="option" data-l="th">ไทย</li>
+        <li role="option" data-l="lo">ລາວ</li>
+      </ul>
+    </div>
+  </div>
+</header>
 
-  <div class="container">
-    <div id="home" class="card slide-in">
-      <div class="profile">
-        <img src="images/profile.jpg" id="profilePic">
-        <div>
-          <h2>Welcome To My Website 😜</h2>
-          <p>Student | Learner | Developer</p>
-        </div>
-      </div> <br>
-      <h3>Hello World, this is me</h3>
-      <p>i am a boy who is interested in web development and design(computer and internet). <br>
-      but Now,I don't have enough time to learn <strong>and</strong> my eyes hurts because I use computer too much, <br>
-      So, I'd like to use this time focus on my English first. <br><br></p>
-      <hr> <br>
-      <h4>These are my favorite videos:</h4>
-      <div class="video-grid">
-        <video controls class="autoVideo"><source src="video/4.mp4" type="video/mp4"></video>
-        <video controls class="autoVideo"><source src="video/3.mp4" type="video/mp4"></video>
-        <video controls class="autoVideo"><source src="video/6.mp4" type="video/mp4"></video>
-        <video controls class="autoVideo"><source src="video/7.mp4" type="video/mp4"></video>
+<main>
+<section id="home">
+  <div class="hero">
+    <div>
+      <p class="roles" data-i="hRole">Student | Learner | Developer</p>
+      <h1 id="typewriter1" aria-live="polite">Welcome to my website</h1>
+      <p class="muted" data-i="hText">A boy who loves web development and design. For now I'm focusing on my English first, and improving a little every day.</p>
+      <div class="btns">
+        <a class="btn fill" href="#projects" data-i="hBtn1">See my projects</a>
+        <a class="btn" href="#contact" data-i="hBtn2">Contact me</a>
+      </div>
+      <div class="social">
+        <a href="https://tiktok.com/@mrjai01" target="_blank" rel="noopener"><i class="fa-brands fa-tiktok"></i>TikTok</a>
+        <a href="https://jaivangdev.github.io/" target="_blank" rel="noopener"><i class="fa-solid fa-house"></i>Portfolio</a>
+        <a href="mailto:tay68600@gmail.com"><i class="fa-solid fa-envelope"></i>Email</a>
       </div>
     </div>
-
-    <div id="about" class="card hidden">
-      <h2>About Me</h2>
-      <p>Hello! My full name is <strong>Jai Vang</strong>. I am a <strong>Hhomg(tribe)</strong> boy.</p>
-      <p>I live in a small village in Laos 🇱🇦 <br>
-      Now, in 2026, I am 17 years old and study at <strong>Midpaxa High School</strong>. <br>
-      I improve myself every day by learning new things, especially My English and Web Development.</p>
-      <br><hr><br>
-      <h3>My hobbies are:</h3>
-      <p>-playing sports and guitar.<br>-reading books, exercise and sleep hahaha. <br>
-       -I really enjoy with listening to podcasts and songs. <br></p>
-        <div class="video-grid">
-      <video controls class="autoVideo">
-        <source src="video/1.mp4" type="video/mp4">
-      </video>
-      <video controls class="autoVideo">
-        <source src="video/2.mp4" type="video/mp4">
-      </video>
-      <video controls class="autoVideo">
-        <source src="video/5.mp4" type="video/mp4">
-      </video>
-      <video controls class="autoVideo">
-        <source src="video/8.mp4" type="video/mp4">
-      </video>
+    <div class="photo">
+      <img src="images/profile.jpg" id="profilePic" alt="Jai Vang profile photo">
+      <p class="quote" data-i="hQuote">"Hello World: Thanks for coming in"</p>
     </div>
-   
+  </div>
+</section>
+
+<section id="about">
+  <h2 class="title" data-i="aTitle">About me</h2>
+  <div class="about">
+    <div class="card">
+      <h3 data-i="aHi">Hi, I'm Jai Vang!</h3>
+      <p class="muted" data-i="aText">I am a Hmong boy living in a small village in Laos 🇱🇦. I improve myself every day by learning new things, especially English and web development.</p>
+      <div class="stats">
+        <div class="stat"><b>17</b><span data-i="sAge">YEARS OLD</span></div>
+        <div class="stat"><b>2</b><span data-i="sProj">PROJECTS</span></div>
+        <div class="stat"><b>4</b><span data-i="sLang">LANGUAGES</span></div>
       </div>
+    </div>
+    <div class="card facts">
+      <p><b data-i="fName">Name</b> Jai Vang</p>
+      <p><b data-i="fTribe">Tribe</b> Hmong</p>
+      <p><b data-i="fSchool">School</b> Midpaxa High School</p>
+      <p><b data-i="fPlace">Address</b> Laos 🇱🇦</p>
+      <p><b data-i="fFocus">Focus</b> English, Web Development</p>
+    </div>
+  </div>
+</section>
 
-    <div id="projects" class="card hidden">
-      <h2>+My Projects</h2>
-    
-      <div style="margin-left: 30px;">
-        <h3>-Working Projects</h3> <br>
-        <p>🏡<a href="https://jaivangdev.github.io/" style="color: white;">my portfolio</a> </p>
-        <p>⏰<a href="https://timer-for-learner.firebaseapp.com/" style="color: white;">my timer for learn</a> </p>
-    
-        <br>
-        <hr>
-        <br>
-    
-        <h3>-Unfinished Projects</h3> <br>
-        <p>🛒 Shopping Website <br> 🧬 AI Assistant <br> </p>
+<section id="skills">
+  <h2 class="title" data-i="kTitle">My interests</h2>
+  <div class="chips">
+    <span class="chip">⚽ <span data-i="k1">Sports</span></span>
+    <span class="chip">🎸 <span data-i="k2">Guitar</span></span>
+    <span class="chip">📚 <span data-i="k3">Reading</span></span>
+    <span class="chip">🏃 <span data-i="k4">Exercise</span></span>
+    <span class="chip">🎧 <span data-i="k5">Podcasts & songs</span></span>
+    <span class="chip">😴 <span data-i="k6">Sleep, hahaha</span></span>
+  </div>
+  <h3 class="sub" data-i="vTitle">My favorite videos</h3>
+  <div class="video-grid">
+    <video controls preload="metadata"><source src="video/4.mp4" type="video/mp4"></video>
+    <video controls preload="metadata"><source src="video/6.mp4" type="video/mp4"></video>
+  </div>
+</section>
+
+<section id="projects">
+  <h2 class="title" data-i="pTitle">My projects</h2>
+  <div class="proj">
+    <a class="card" href="https://jaivangdev.github.io/" target="_blank" rel="noopener"><div class="ico">🏡</div><h3>My portfolio</h3><span class="tag live" data-i="pLive">Live</span></a>
+    <a class="card" href="https://timer-for-learner.firebaseapp.com/" target="_blank" rel="noopener"><div class="ico">⏰</div><h3>Timer for learners</h3><span class="tag live" data-i="pLive2">Live</span></a>
+    <div class="card"><div class="ico">🛒</div><h3>Shopping website</h3><span class="tag wip" data-i="pWip">In progress</span></div>
+    <div class="card"><div class="ico">🧬</div><h3>AI assistant</h3><span class="tag wip" data-i="pWip2">In progress</span></div>
+  </div>
+  <p class="muted" style="margin-top:18px" data-i="pNote">I'm still learning and improving. I'll show you more when it's ready, and I promise to work hard to make it happen. 😜</p>
+</section>
+
+<section id="contact">
+  <h2 class="title" data-i="cTitle">Contact me</h2>
+  <p class="muted" data-i="cText">Feel free to reach out. I'm always open to new ideas and friends!</p>
+  <div class="contact">
+    <a class="card" href="mailto:tay68600@gmail.com"><i class="fa-solid fa-envelope"></i><small data-i="cMail">Email me</small>tay68600@gmail.com</a>
+    <a class="card" href="https://tiktok.com/@mrjai01" target="_blank" rel="noopener"><i class="fa-brands fa-tiktok"></i><small>TikTok</small>Mr Jai Vang</a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="foot">
+    <div>
+      <p class="muted" data-i="fAbout">Learning every day, one line of code at a time.</p>
+       <div class="social-icons aos-init aos-animate" data-aos="zoom-in-up">
+          <a href="https://tiktok.com/@mrjai01"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="https://www.facebook.com/146334708570282"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://www.youtube.com/@ijai01"><i class="fa-brands fa-youtube"></i></a>
+          <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://github.com/jaivangdev"><i class="fa-brands fa-github"></i></a>
       </div>
-    
-      <br>
-      <hr><br>
-      <p>
-        I'll show you when it's ready! <br>
-        and promise that I will work hard to make it happen. <br>
-        but now, I am still learning and improving my skills, so i don't have any project to show you yet. 😜 <br>
-      </p>
+    </div> 
+    <div>
+      <b data-i="fCta">Say hello</b>
+      <p class="muted" style="margin:6px 0 10px" data-i="fCtaText">Have an idea? Let's talk.</p>
+      <a class="btn fill" href="whatsapp://send?phone=+8562099337939" data-i="hBtn2">Contact me</a>
     </div>
-    
-    <div id="contact" class="card hidden">
-      <h2>Contact Me</h2>
-      <p>Email: <a href="mailto:tay68600@gmail.com" id="mylink">tay68600@gmail.com</a></p>
-      <p>TikTok: <a href="https://tiktok.com/@mrjai01" target="_blank" id="mylink">Mr Jai Vang</a></p>
-    </div>
-    </div>
-    
-    <footer>© 2026 JaiVang Website</footer>
+  </div>
+  <div class="copy">© 2026 Jai Vang</div>
+</footer>
 
- 
-
-  <script>
-    function showPage(page, btn) {
-      document.querySelectorAll('.card').forEach(c => {
-        c.classList.add('hidden');
-        c.classList.remove('slide-in');
-      });
-      const activeCard = document.getElementById(page);
-      activeCard.classList.remove('hidden');
-      void activeCard.offsetWidth; 
-      activeCard.classList.add('slide-in');
-      document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-    }
-
-    // --- [ปรับปรุงใหม่] Profile Zoom แบบค่อยๆ ขยายและฉากหลังไม่มืดเกินไป ---
-    document.getElementById("profilePic").onclick = function() {
-      const viewer = document.createElement("div");
-      
-      // ตั้งค่าพื้นหลังจางๆ (0.4) และเบลอนิดๆ เพื่อให้เห็นหน้าเว็บปกติ
-      viewer.style = `
-        position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-        background: rgba(0, 0, 0, 0.4); 
-        backdrop-filter: blur(5px);
-        display: flex; justify-content: center; align-items: center;
-        z-index: 99999; cursor: pointer;
-        transition: opacity 0.3s ease;
-      `;
-      
-      const img = document.createElement("img");
-      img.src = this.src;
-      img.className = "zoom-img-style"; // ใช้ CSS Animation ที่เราสร้างไว้ข้างบน
-      
-      viewer.appendChild(img);
-      document.body.appendChild(viewer);
-
-      // คลิกเพื่อปิด
-      viewer.onclick = () => {
-        viewer.style.opacity = "0";
-        setTimeout(() => viewer.remove(), 300);
-      };
-    };
-
-    const videos = document.querySelectorAll(".autoVideo");
-    videos.forEach(v => {
-      v.addEventListener("play", () => {
-        videos.forEach(other => {
-          if (other !== v) {
-            other.pause();
-            other.currentTime = 0;
-          }
-        });
-      });
+<script>
+  // ---- Languages ----
+  const T = {
+    th: { nHome:"หน้าแรก", nAbout:"เกี่ยวกับ", nSkills:"ความสนใจ", nProjects:"ผลงาน", nContact:"ติดต่อ",
+      hRole:"นักเรียน | นักเรียนรู้ | นักพัฒนา", hHi:"ยินดีต้อนรับสู่เว็บไซต์ของฉัน",
+      hText:"เด็กผู้ชายที่รักการพัฒนาเว็บและการออกแบบ ตอนนี้ฉันโฟกัสกับภาษาอังกฤษก่อน และพัฒนาตัวเองทุกวัน",
+      hBtn1:"ดูผลงาน", hBtn2:"ติดต่อฉัน", hQuote:"\"Hello World: ทุกการเดินทางยิ่งใหญ่เริ่มต้นที่นี่\"",
+      aTitle:"เกี่ยวกับฉัน", aHi:"สวัสดี ฉันชื่อ ใจ วัง!", aText:"ฉันเป็นเด็กผู้ชายชาวม้ง อาศัยอยู่ในหมู่บ้านเล็กๆ ในประเทศลาว 🇱🇦 ฉันพัฒนาตัวเองทุกวัน โดยเฉพาะภาษาอังกฤษและการพัฒนาเว็บ",
+      sAge:"ปี", sProj:"ผลงาน", sLang:"ภาษา", fName:"ชื่อ", fTribe:"ชนเผ่า", fSchool:"โรงเรียน", fPlace:"ที่อยู่", fFocus:"สิ่งที่โฟกัส",
+      kTitle:"ความสนใจของฉัน", k1:"กีฬา", k2:"กีตาร์", k3:"อ่านหนังสือ", k4:"ออกกำลังกาย", k5:"พอดแคสต์และเพลง", k6:"นอน ฮ่าฮ่า", vTitle:"วิดีโอที่ฉันชอบ",
+      pTitle:"ผลงานของฉัน", pLive:"ใช้งานได้", pLive2:"ใช้งานได้", pWip:"กำลังทำ", pWip2:"กำลังทำ",
+      pNote:"ฉันยังเรียนรู้และพัฒนาอยู่ไว้จะโชว์เมื่อพร้อม และสัญญาว่าจะตั้งใจทำให้สำเร็จ 😜",
+      cTitle:"ติดต่อฉัน", cText:"ติดต่อได้เลย ฉันเปิดรับไอเดียและเพื่อนใหม่เสมอ!", cMail:"ส่งอีเมล",
+      fAbout:"เรียนรู้ทุกวัน ทีละบรรทัดโค้ด", fLinks:"ลิงก์ด่วน", fCta:"ทักทายกัน", fCtaText:"มีไอเดียไหม? มาคุยกัน" },
+    lo: { nHome:"ໜ້າຫຼັກ", nAbout:"ກ່ຽວກັບ", nSkills:"ຄວາມສົນໃຈ", nProjects:"ຜົນງານ", nContact:"ຕິດຕໍ່",
+      hRole:"ນັກຮຽນ | ຜູ້ຮຽນຮູ້ | ນັກພັດທະນາ", hHi:"ຍິນດີຕ້ອນຮັບສູ່ເວັບໄຊຂອງຂ້ອຍ",
+      hText:"ເດັກຊາຍທີ່ຮັກການພັດທະນາເວັບ ແລະ ການອອກແບບ ດຽວນີ້ຂ້ອຍເນັ້ນພາສາອັງກິດກ່ອນ ແລະ ພັດທະນາຕົນເອງທຸກມື້",
+      hBtn1:"ເບິ່ງຜົນງານ", hBtn2:"ຕິດຕໍ່ຂ້ອຍ", hQuote:"\"Hello World: ທຸກການເດີນທາງໃຫຍ່ເລີ່ມຈາກບ່ອນນີ້\"",
+      aTitle:"ກ່ຽວກັບຂ້ອຍ", aHi:"ສະບາຍດີ ຂ້ອຍຊື່ ໃຈ ວັງ!", aText:"ຂ້ອຍເປັນເດັກຊາຍຊົນເຜົ່າມົ້ງ ອາໄສຢູ່ບ້ານນ້ອຍໆໃນລາວ 🇱🇦 ຂ້ອຍພັດທະນາຕົນເອງທຸກມື້ ໂດຍສະເພາະພາສາອັງກິດ ແລະ ການພັດທະນາເວັບ",
+      sAge:"ປີ", sProj:"ຜົນງານ", sLang:"ພາສາ", fName:"ຊື່", fTribe:"ຊົນເຜົ່າ", fSchool:"ໂຮງຮຽນ", fPlace:"ທີ່ຢູ່", fFocus:"ສິ່ງທີ່ເນັ້ນ",
+      kTitle:"ຄວາມສົນໃຈຂອງຂ້ອຍ", k1:"ກິລາ", k2:"ກີຕາ", k3:"ອ່ານປຶ້ມ", k4:"ອອກກຳລັງກາຍ", k5:"ພອດແຄສ ແລະ ເພງ", k6:"ນອນ ຮ່າຮ່າ", vTitle:"ວິດີໂອທີ່ຂ້ອຍມັກ",
+      pTitle:"ຜົນງານຂອງຂ້ອຍ", pLive:"ໃຊ້ງານໄດ້", pLive2:"ໃຊ້ງານໄດ້", pWip:"ກຳລັງເຮັດ", pWip2:"ກຳລັງເຮັດ",
+      pNote:"ຂ້ອຍຍັງຮຽນຮູ້ ແລະ ພັດທະນາຢູ່ ຈະສະແດງໃຫ້ເບິ່ງເມື່ອພ້ອມ ແລະ ສັນຍາວ່າຈະຕັ້ງໃຈເຮັດໃຫ້ສຳເລັດ 😜",
+      cTitle:"ຕິດຕໍ່ຂ້ອຍ", cText:"ຕິດຕໍ່ໄດ້ເລີຍ ຂ້ອຍເປີດຮັບໄອເດຍ ແລະ ໝູ່ໃໝ່ສະເໝີ!", cMail:"ສົ່ງອີເມວ",
+      fAbout:"ຮຽນຮູ້ທຸກມື້ ເທື່ອລະແຖວໂຄ້ດ", fLinks:"ລິ້ງດ່ວນ", fCta:"ທັກທາຍກັນ", fCtaText:"ມີໄອເດຍບໍ? ມາລົມກັນ" }
+  };
+  const els = [...document.querySelectorAll("[data-i]")];
+  els.forEach(e => e.dataset.en = e.textContent);
+  function setLang(l) {
+    els.forEach(e => { e.textContent = (l !== "en" && T[l][e.dataset.i]) || e.dataset.en; });
+    document.documentElement.lang = l;
+    document.querySelectorAll(".lang-menu li").forEach(li => {
+      const on = li.dataset.l === l;
+      li.classList.toggle("on", on);
+      if (on) document.getElementById("langNow").textContent = li.textContent;
     });
-
-    tsParticles.load("tsparticles", {
-  particles: {
-    number: { value: 60 },
-    color: { value: "#ffffff" },
-    links: {
-      enable: true,
-      color: "#ffffff"
-    },
-    move: {
-      enable: true,
-      speed: 1.5
-    },
-    size: { value: 2 }
+    startTyping(l);
+    try { localStorage.setItem("lang", l); } catch (e) {}
   }
-});
-  </script>
+  const langBox = document.getElementById("lang"), langBtn = document.getElementById("langBtn");
+  langBtn.onclick = e => { e.stopPropagation(); const o = langBox.classList.toggle("open"); langBtn.setAttribute("aria-expanded", o); };
+  document.querySelectorAll(".lang-menu li").forEach(li => li.onclick = () => { setLang(li.dataset.l); langBox.classList.remove("open"); });
+  document.addEventListener("click", () => langBox.classList.remove("open"));
+  document.addEventListener("keydown", e => { if (e.key === "Escape") langBox.classList.remove("open"); });
 
+  // ---- Typewriter: types a phrase, erases it, types the next one (edit the phrases here) ----
+  const PHRASES = {
+    en: ["Welcome to my website", "Hello, I'm Jai Vang"],
+    th: ["ยินดีต้อนรับสู่เว็บไซต์ของฉัน", "สวัสดี ฉันชื่อ ใจ วัง"],
+    lo: ["ຍິນດີຕ້ອນຮັບສູ່ເວັບໄຊຂອງຂ້ອຍ", "ສະບາຍດີ ຂ້ອຍຊື່ ໃຈ ວັງ"]
+  };
+  let twTimer;
+  function startTyping(l) {
+    clearTimeout(twTimer);
+    const el = document.getElementById("typewriter1");
+    const list = PHRASES[l] || PHRASES.en;
+    const split = t => window.Intl && Intl.Segmenter ? [...new Intl.Segmenter(undefined, { granularity: "grapheme" }).segment(t)].map(x => x.segment) : Array.from(t);
+    const parts = list.map(split);
+    let p = 0, c = 0, erasing = false;
+    (function tick() {
+      const g = parts[p];
+      if (!erasing) {
+        el.textContent = g.slice(0, ++c).join("");
+        if (c === g.length) { erasing = true; twTimer = setTimeout(tick, 1600); return; }
+        twTimer = setTimeout(tick, 95);
+      } else {
+        el.textContent = g.slice(0, --c).join("");
+        if (c === 0) { erasing = false; p = (p + 1) % parts.length; twTimer = setTimeout(tick, 400); return; }
+        twTimer = setTimeout(tick, 45);
+      }
+    })();
+  }
+  try { const s = localStorage.getItem("lang"); if (s && s !== "en") setLang(s); } catch (e) {}
+  startTyping(document.documentElement.lang || "en");
+
+  // ---- Highlight nav link for the section in view ----
+  const links = [...document.querySelectorAll("#nav a")];
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(en => {
+      if (en.isIntersecting) links.forEach(a => a.classList.toggle("active", a.getAttribute("href") === "#" + en.target.id));
+    });
+  }, { rootMargin: "-45% 0px -50% 0px" });
+  document.querySelectorAll("main section").forEach(s => io.observe(s));
+
+  // ---- Profile photo zoom ----
+  document.getElementById("profilePic").onclick = function () {
+    const v = document.createElement("div");
+    v.style.cssText = "position:fixed;inset:0;background:rgba(0,0,0,.5);backdrop-filter:blur(5px);display:flex;justify-content:center;align-items:center;z-index:9999;cursor:zoom-out;transition:opacity .3s";
+    const img = document.createElement("img");
+    img.src = this.src;
+    img.alt = this.alt;
+    img.style.cssText = "max-width:85%;max-height:85%;border-radius:20px;border:4px solid #fff;box-shadow:0 20px 60px rgba(0,0,0,.5)";
+    img.animate([{ transform: "scale(.4)", opacity: 0 }, { transform: "scale(1)", opacity: 1 }], { duration: 400, easing: "cubic-bezier(.175,.885,.32,1.275)" });
+    v.appendChild(img);
+    document.body.appendChild(v);
+    v.onclick = () => { v.style.opacity = 0; setTimeout(() => v.remove(), 300); };
+  };
+
+  // ---- Only one video plays at a time ----
+  const vids = document.querySelectorAll("video");
+  vids.forEach(v => v.addEventListener("play", () => vids.forEach(o => { if (o !== v) { o.pause(); o.currentTime = 0; } })));
+</script>
+<script>
+  // ---- Sections slide in from the sides as you scroll, and slide out again when you scroll away (replays every time) ----
+  (function () {
+    const plan = [
+      [".hero > div:first-child", "l"], [".hero .photo", "r"],
+      ["h2.title", "l"], ["section > p.muted", "u"],
+      [".about > .card:nth-child(1)", "l"], [".about > .card:nth-child(2)", "r"],
+      [".chip", "u"], ["h3.sub", "l"],
+      [".video-grid video", "alt"], [".proj .card", "alt"], [".contact .card", "alt"],
+      [".foot > div:nth-child(1)", "l"], [".foot > div:nth-child(2)", "u"], [".foot > div:nth-child(3)", "r"]
+    ];
+    const targets = [];
+    plan.forEach(([sel, dir]) => document.querySelectorAll(sel).forEach((el, i) => {
+      if (el.classList.contains("rv")) return;
+      const d = dir === "alt" ? (i % 2 ? "r" : "l") : dir;
+      el.classList.add("rv", d);
+      el.dataset.delay = (i % 4) * 90;
+      targets.push(el);
+    }));
+    const io = new IntersectionObserver(entries => entries.forEach(en => {
+      const el = en.target;
+      if (en.isIntersecting) { el.style.transitionDelay = el.dataset.delay + "ms"; el.classList.add("in"); }
+      else { el.style.transitionDelay = "0ms"; el.classList.remove("in"); }   // slide back out, ready to replay
+    }), { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+    targets.forEach(el => io.observe(el));
+  })();
+</script>
 </body>
 </html>
